@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Palette } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Palette } from "lucide-react";
 
 export function Hero() {
   return (
@@ -38,10 +38,16 @@ export function Hero() {
           </span>
         </div>
 
+        <p className="font-mono text-primary text-2xl sm:text-3xl md:text-4xl mb-4 tracking-wide">
+          {"<SaniaRakhangi />"}
+        </p>
+
         {/* Main Headline */}
         <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6">
           <span className="block text-balance">Engineering Logic.</span>
-          <span className="block text-primary text-balance">Designing Experiences.</span>
+          <span className="block text-primary text-balance">
+            Designing Experiences.
+          </span>
         </h1>
 
         {/* Subheadline */}
@@ -51,7 +57,8 @@ export function Hero() {
 
         {/* Description */}
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed text-pretty">
-          I build systems, interfaces, and digital experiences where engineering meets thoughtful design.
+          I build systems, interfaces, and digital experiences where engineering
+          meets thoughtful design.
         </p>
 
         {/* CTA Buttons */}
@@ -87,5 +94,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

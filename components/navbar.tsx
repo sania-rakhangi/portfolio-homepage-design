@@ -1,9 +1,9 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Menu, X } from "lucide-react"
+"use client";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Engineering Projects", href: "#engineering" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
-]
+];
 
 function MonogramLogo() {
   return (
@@ -55,21 +55,21 @@ function MonogramLogo() {
         className="text-primary"
       />
     </svg>
-  )
+  );
 }
 
 export function Navbar() {
-  const [activeLink, setActiveLink] = useState("Home")
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeLink, setActiveLink] = useState("Home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
@@ -77,13 +77,24 @@ export function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-background/95 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          : "bg-transparent",
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="#home" className="flex items-center gap-3">
-            <MonogramLogo />
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="transition-transform duration-300 hover:scale-110"
+            />
+            <span className="font-mono text-sm sm:text-base tracking-wide">
+              <span className="text-primary">sania</span>
+              <span className="text-muted-foreground">.</span>
+              <span className="text-foreground">rakhangi</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -97,14 +108,14 @@ export function Navbar() {
                   "relative px-4 py-2 text-sm font-medium transition-colors duration-200",
                   activeLink === link.name
                     ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {link.name}
                 <span
                   className={cn(
                     "absolute bottom-0 left-4 right-4 h-0.5 bg-primary transition-transform duration-300 origin-left",
-                    activeLink === link.name ? "scale-x-100" : "scale-x-0"
+                    activeLink === link.name ? "scale-x-100" : "scale-x-0",
                   )}
                 />
               </Link>
@@ -126,7 +137,7 @@ export function Navbar() {
       <div
         className={cn(
           "md:hidden overflow-hidden transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-border",
-          isMobileMenuOpen ? "max-h-96" : "max-h-0 border-b-0"
+          isMobileMenuOpen ? "max-h-96" : "max-h-0 border-b-0",
         )}
       >
         <div className="px-4 py-2 space-y-1">
@@ -135,14 +146,14 @@ export function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => {
-                setActiveLink(link.name)
-                setIsMobileMenuOpen(false)
+                setActiveLink(link.name);
+                setIsMobileMenuOpen(false);
               }}
               className={cn(
                 "block px-4 py-3 text-sm font-medium rounded-md transition-colors duration-200",
                 activeLink === link.name
                   ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-card"
+                  : "text-muted-foreground hover:text-foreground hover:bg-card",
               )}
             >
               {link.name}
@@ -151,5 +162,5 @@ export function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
