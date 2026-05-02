@@ -1,39 +1,10 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Figma, Layers, MousePointer, Smartphone } from "lucide-react"
-
-const uiuxProjects = [
-  {
-    title: "Mobile Banking Redesign",
-    description: "Complete UX overhaul of a banking app focusing on accessibility and user-centered design principles.",
-    icon: Smartphone,
-    tools: ["Figma", "Principle", "User Testing"],
-    type: "Case Study",
-  },
-  {
-    title: "E-commerce Design System",
-    description: "Comprehensive design system with reusable components, tokens, and documentation for scalable product design.",
-    icon: Layers,
-    tools: ["Figma", "Storybook", "Design Tokens"],
-    type: "Design System",
-  },
-  {
-    title: "Interactive Prototype",
-    description: "High-fidelity interactive prototype for a health and wellness application with micro-interactions.",
-    icon: MousePointer,
-    tools: ["Figma", "Framer", "After Effects"],
-    type: "Prototype",
-  },
-  {
-    title: "SaaS Dashboard UI",
-    description: "Data-driven dashboard interface design with focus on information hierarchy and user workflows.",
-    icon: Figma,
-    tools: ["Figma", "Maze", "Analytics"],
-    type: "UI Design",
-  },
-]
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { uiuxProjects } from "@/lib/project-data";
 
 export function UIUXWork() {
   return (
@@ -49,8 +20,18 @@ export function UIUXWork() {
           </h2>
           <div className="mt-4 w-16 h-1 bg-primary mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Exploring the intersection of aesthetics and usability through research-driven design solutions.
+            Exploring the intersection of aesthetics and usability through
+            research-driven design solutions.
           </p>
+          <div className="mt-6">
+            <Button
+              asChild
+              variant="outline"
+              className="border-primary/40 hover:bg-primary/10"
+            >
+              <Link href="/projects/uiux">View Full UI/UX Projects Page</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Projects Grid */}
@@ -68,14 +49,17 @@ export function UIUXWork() {
                     <project.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <h3 className="text-lg font-heading font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <Badge variant="outline" className="shrink-0 border-primary/30 text-primary">
+                    <Badge
+                      variant="outline"
+                      className="shrink-0 border-primary/30 text-primary"
+                    >
                       {project.type}
                     </Badge>
                   </div>
@@ -93,6 +77,17 @@ export function UIUXWork() {
                       </span>
                     ))}
                   </div>
+                  <div className="mt-5">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="border-primary/40 hover:bg-primary/10"
+                    >
+                      <Link href={`/projects/${project.slug}`}>
+                        View Project Details
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -100,5 +95,5 @@ export function UIUXWork() {
         </div>
       </div>
     </section>
-  )
+  );
 }

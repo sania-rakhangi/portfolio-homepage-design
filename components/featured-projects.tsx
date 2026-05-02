@@ -1,39 +1,18 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowUpRight } from "lucide-react"
-
-const projects = [
-  {
-    title: "Smart Home Dashboard",
-    description: "A comprehensive IoT dashboard for monitoring and controlling smart home devices with real-time data visualization.",
-    image: "/placeholder-project-1.jpg",
-    techStack: ["React", "Node.js", "MQTT", "D3.js"],
-    category: "Full Stack",
-  },
-  {
-    title: "Algorithm Visualizer",
-    description: "Interactive web application that visualizes common sorting and pathfinding algorithms for educational purposes.",
-    image: "/placeholder-project-2.jpg",
-    techStack: ["TypeScript", "Canvas API", "React"],
-    category: "Frontend",
-  },
-  {
-    title: "Embedded Systems Monitor",
-    description: "Real-time monitoring system for embedded devices with custom firmware and wireless communication protocols.",
-    image: "/placeholder-project-3.jpg",
-    techStack: ["C++", "Python", "WebSocket", "ARM"],
-    category: "Systems",
-  },
-]
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import { featuredProjects } from "@/lib/project-data";
 
 export function FeaturedProjects() {
   return (
     <section id="projects" className="py-24 relative">
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
-      
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-card/30 to-transparent" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -44,18 +23,29 @@ export function FeaturedProjects() {
             Featured Projects
           </h2>
           <div className="mt-4 w-16 h-1 bg-primary mx-auto rounded-full" />
+          <div className="mt-6">
+            <Button
+              asChild
+              variant="outline"
+              className="border-primary/40 hover:bg-primary/10"
+            >
+              <Link href="/projects/featured">
+                View Full Featured Projects Page
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <Card
               key={project.title}
               className="group relative bg-card border-border overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-card to-background overflow-hidden">
+              <div className="relative h-48 bg-linear-to-br from-card to-background overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-20 h-20 rounded-lg bg-primary/10 flex items-center justify-center">
                     <span className="font-heading text-2xl font-bold text-primary">
@@ -93,11 +83,22 @@ export function FeaturedProjects() {
                     </span>
                   ))}
                 </div>
+                <div className="mt-5">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-primary/40 hover:bg-primary/10"
+                  >
+                    <Link href={`/projects/${project.slug}`}>
+                      View Project Details
+                    </Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
