@@ -1,12 +1,35 @@
 "use client"
 
-import { Code, Palette, Zap } from "lucide-react"
+import { Code, Compass, Palette, Zap } from "lucide-react"
+
+const strengths = [
+  {
+    title: "Engineering Foundation",
+    copy: "I build with React, Node.js, Express, MongoDB, Docker, Kubernetes, Jenkins, and testing workflows.",
+    icon: Code,
+  },
+  {
+    title: "Product Design",
+    copy: "I use research, heuristic evaluation, user flows, prototyping, and usability testing to make interfaces easier to understand.",
+    icon: Palette,
+  },
+  {
+    title: "Cross-Functional Thinking",
+    copy: "I enjoy connecting technical implementation details with the way people actually move through a product.",
+    icon: Compass,
+  },
+  {
+    title: "Iteration",
+    copy: "I turn feedback, metrics, and constraints into practical improvements instead of treating design and engineering as separate tracks.",
+    icon: Zap,
+  },
+]
 
 export function About() {
   return (
     <section id="about" className="py-24 relative">
+      <div className="absolute inset-x-0 top-12 mx-auto h-px max-w-5xl bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <span className="font-mono text-xs text-primary tracking-wider uppercase">
             Background
@@ -17,52 +40,56 @@ export function About() {
           <div className="mt-4 w-16 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                As a Computer Engineering student with a minor in UI/UX Design, I occupy a unique space where technical depth meets creative problem-solving. My engineering background gives me the foundation to understand how systems work at their core—from algorithms and data structures to embedded systems and software architecture.
+        <div className="mx-auto max-w-5xl rounded-sm border border-border bg-background/75 p-6 shadow-2xl shadow-black/15 sm:p-8">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wider text-primary">
+                Computer Engineering / UI UX
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                What draws me to UI/UX is the opportunity to bridge the gap between complex technology and the humans who use it. I believe the best digital experiences are built when engineers and designers speak the same language, and I{"'"}m constantly working to become fluent in both.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                My passion lies in building user-centered technology—products that are not only technically sound but also intuitive, accessible, and delightful to use. Whether I{"'"}m writing efficient algorithms or crafting pixel-perfect interfaces, my goal remains the same: creating experiences that make a meaningful impact.
-              </p>
+              <h3 className="mt-3 font-heading text-2xl font-semibold text-foreground">
+                I like building products where the system works well and the
+                interface feels clear.
+              </h3>
+              <div className="mt-6 space-y-5 text-lg leading-8 text-muted-foreground">
+                <p>
+                  I am a Computer Engineering student with a minor in UI/UX
+                  Design. My work sits between implementation and experience:
+                  full-stack applications, deployment pipelines, machine
+                  learning experiments, and research-led product redesigns.
+                </p>
+                <p>
+                  The projects in this portfolio show that range. The Vehicle
+                  Parking Management System focuses on MERN development and
+                  DevOps automation. The sketch-to-face project explores
+                  computer vision and CLIP-guided GANs. The M-Indicator redesign
+                  focuses on usability, information hierarchy, accessibility,
+                  and commuter workflows.
+                </p>
+                <p>
+                  I care about making complex systems easier to use, and I enjoy
+                  the process of turning technical constraints into thoughtful,
+                  practical design decisions.
+                </p>
+              </div>
             </div>
 
-            {/* Side Cards */}
-            <div className="space-y-4">
-              <div className="p-5 rounded-xl bg-card border border-border">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Code className="w-5 h-5 text-primary" />
+            <div className="grid gap-4">
+              {strengths.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-sm border border-border bg-card/55 p-5"
+                >
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-sm border border-primary/20 bg-primary/10">
+                    <item.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h4 className="font-heading font-semibold text-foreground">
+                    {item.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    {item.copy}
+                  </p>
                 </div>
-                <h3 className="font-heading font-semibold text-foreground mb-2">Technical Foundation</h3>
-                <p className="text-sm text-muted-foreground">
-                  Strong background in systems programming, algorithms, and software engineering principles.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-xl bg-card border border-border">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Palette className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-heading font-semibold text-foreground mb-2">Design Thinking</h3>
-                <p className="text-sm text-muted-foreground">
-                  User research, wireframing, prototyping, and visual design skills honed through practice.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-xl bg-card border border-border">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Zap className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-heading font-semibold text-foreground mb-2">Bridging Disciplines</h3>
-                <p className="text-sm text-muted-foreground">
-                  Unique ability to translate between engineering constraints and design aspirations.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>

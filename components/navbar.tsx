@@ -8,8 +8,6 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Projects", href: "#projects" },
-  { name: "UI/UX Work", href: "#uiux" },
-  { name: "Engineering Projects", href: "#engineering" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];

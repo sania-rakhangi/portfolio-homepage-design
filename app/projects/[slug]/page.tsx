@@ -3,7 +3,7 @@ import {
   getProjectBySlug,
   projectDetails,
   type ProjectDetail,
-} from "@/lib/project-data";
+} from "@/lib/portfolio-projects";
 import { ProjectDetailTemplate } from "@/components/project-detail-template";
 
 type ProjectPageProps = {

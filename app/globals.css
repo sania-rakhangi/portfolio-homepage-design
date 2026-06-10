@@ -88,5 +88,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(rgba(43, 30, 25, 0.72), rgba(43, 30, 25, 0.86)),
+      url('/images/hero section bg.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
