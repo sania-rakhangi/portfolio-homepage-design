@@ -12,10 +12,7 @@ export function Projects() {
   const router = useRouter();
   const [openingSlug, setOpeningSlug] = useState<string | null>(null);
 
-  const openProject = (
-    event: MouseEvent<HTMLAnchorElement>,
-    slug: string,
-  ) => {
+  const openProject = (event: MouseEvent<HTMLAnchorElement>, slug: string) => {
     event.preventDefault();
     setOpeningSlug(slug);
     window.setTimeout(() => router.push(`/projects/${slug}`), 520);
@@ -49,15 +46,6 @@ export function Projects() {
               className="group relative block h-full [perspective:1200px]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="absolute inset-y-4 -right-5 w-10 rounded-r-md border-y border-r border-border bg-background shadow-lg shadow-black/10" />
-              <div className="absolute inset-y-6 -right-8 w-10 rounded-r-md border-y border-r border-border bg-background/90 shadow-md" />
-              <div className="absolute right-[-34px] top-10 bottom-10 w-12 overflow-hidden rounded-r-sm border-y border-r border-border bg-background">
-                <div className="absolute inset-0 bg-[repeating-linear-gradient(to_bottom,transparent_0_8px,var(--border)_8px_9px)] opacity-80" />
-                <div className="absolute inset-y-0 left-1 w-px bg-border" />
-                <div className="absolute inset-y-0 left-3 w-px bg-border/70" />
-                <div className="absolute inset-y-0 right-2 w-px bg-card" />
-              </div>
-
               <article
                 className={`relative h-full min-h-[460px] overflow-hidden rounded-r-lg rounded-l-sm border border-border bg-linear-to-br from-card via-background to-card shadow-xl shadow-black/5 transition-all duration-500 transform-gpu group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/10 group-hover:[transform:rotateY(-5deg)_translateY(-8px)] ${
                   openingSlug === project.slug
@@ -90,14 +78,6 @@ export function Projects() {
                         sizes="(min-width: 768px) 28vw, 100vw"
                         className="object-contain p-2 transition duration-500 group-hover:scale-[1.03]"
                       />
-                    </div>
-                    <div className="flex items-center gap-2 border-t border-border px-3 py-2">
-                      {project.icon ? (
-                        <project.icon className="w-4 h-4 text-primary" />
-                      ) : null}
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                        Cover image
-                      </span>
                     </div>
                   </div>
 

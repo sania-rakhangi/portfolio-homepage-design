@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { useMemo, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react"
+import { useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
 export function Contact() {
-  const [subject, setSubject] = useState("Portfolio collaboration")
+  const [subject, setSubject] = useState("Portfolio collaboration");
   const [message, setMessage] = useState(
     "Dear Sania,\n\nI came across your portfolio and wanted to connect about...\n\nRegards,\n",
-  )
+  );
 
   const mailHref = useMemo(() => {
     const params = new URLSearchParams({
       subject,
       body: message,
-    })
+    });
 
-    return `mailto:sania.rakhangi@gmail.com?${params.toString()}`
-  }, [message, subject])
+    return `mailto:sania.rakhangi@gmail.com?${params.toString()}`;
+  }, [message, subject]);
 
   return (
     <section id="contact" className="relative py-24">
@@ -47,9 +47,7 @@ export function Contact() {
                     <p className="font-mono text-xs uppercase tracking-wider text-primary">
                       To
                     </p>
-                    <p className="mt-1 text-foreground">
-                      Sania Rakhangi
-                    </p>
+                    <p className="mt-1 text-foreground">Sania Rakhangi</p>
                     <p className="text-sm text-muted-foreground">
                       sania.rakhangi@gmail.com
                     </p>
@@ -81,7 +79,14 @@ export function Contact() {
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
                     rows={9}
-                    className="mt-3 w-full resize-none border border-border bg-[repeating-linear-gradient(to_bottom,transparent_0_31px,var(--border)_31px_32px)] px-4 py-3 leading-8 text-foreground outline-none transition focus:border-primary"
+                    className="mt-3 w-full resize-none bg-transparent px-4 py-3 text-foreground outline-none transition focus:border-primary border border-border"
+                    style={{
+                      lineHeight: "2rem",
+                      backgroundImage:
+                        "repeating-linear-gradient(to bottom, transparent, transparent calc(2rem - 1px), var(--border) calc(2rem - 1px), var(--border) 2rem)",
+                      backgroundSize: "100% 2rem",
+                      backgroundPositionY: "calc(2rem + 0.75rem)", // offset = padding-top
+                    }}
                   />
                 </label>
 
@@ -130,5 +135,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

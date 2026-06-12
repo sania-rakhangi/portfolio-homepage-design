@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { Code, Compass, Palette, Zap } from "lucide-react"
+import { Code, Compass, Palette, Zap } from "lucide-react";
 
 const strengths = [
   {
@@ -23,7 +23,7 @@ const strengths = [
     copy: "I turn feedback, metrics, and constraints into practical improvements instead of treating design and engineering as separate tracks.",
     icon: Zap,
   },
-]
+];
 
 export function About() {
   return (
@@ -41,7 +41,7 @@ export function About() {
         </div>
 
         <div className="mx-auto max-w-5xl rounded-sm border border-border bg-background/75 p-6 shadow-2xl shadow-black/15 sm:p-8">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="flex flex-col gap-10">
             <div>
               <p className="font-mono text-xs uppercase tracking-wider text-primary">
                 Computer Engineering / UI UX
@@ -73,21 +73,23 @@ export function About() {
               </div>
             </div>
 
-            <div className="grid gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {strengths.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-sm border border-border bg-card/55 p-5"
+                  className="flex items-start gap-4 rounded-sm border border-border bg-card/55 p-5"
                 >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-sm border border-primary/20 bg-primary/10">
+                  <div className="shrink-0 flex h-10 w-10 items-center justify-center rounded-sm border border-primary/20 bg-primary/10">
                     <item.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h4 className="font-heading font-semibold text-foreground">
-                    {item.title}
-                  </h4>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    {item.copy}
-                  </p>
+                  <div>
+                    <h4 className="font-heading font-semibold text-foreground">
+                      {item.title}
+                    </h4>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {item.copy}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -95,5 +97,5 @@ export function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
