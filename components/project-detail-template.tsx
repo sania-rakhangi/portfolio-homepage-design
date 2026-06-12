@@ -38,7 +38,7 @@ function figureNote(project: ProjectDetail, image: string) {
 
   if (project.slug === "vehicle-parking-management-system") {
     if (name.includes("architecture")) {
-      return "The three-tier MERN architecture: React presentation layer on Port 3000, Express business logic on Port 5000, and MongoDB Atlas as the cloud data layer. A Jenkins declarative pipeline automates the full lifecycle — checkout, npm ci, Jest tests, Docker build, image push to Docker Hub, and kubectl deploy to Kubernetes.";
+      return "The three-tier MERN architecture: React presentation layer on Port 3000, Express business logic on Port 5000, and MongoDB Atlas as the cloud data layer. A Jenkins declarative pipeline automates the full lifecycle, checkout, npm ci, Jest tests, Docker build, image push to Docker Hub, and kubectl deploy to Kubernetes.";
     }
     if (name.includes("home page")) {
       return "The frontend running at localhost:3000. Users enter the parking workflow here, selecting vehicle type (Bike, Car, EV, or Truck) before checking real-time slot availability.";
@@ -56,7 +56,7 @@ function figureNote(project: ProjectDetail, image: string) {
       return "All 17 Jest tests passing across 8 suites: 6 backend suites (12 tests, ~2.1s) covering booking, cancellation, slot checking, validation, and time utilities, plus 2 frontend suites (5 tests, ~3.6s) covering BookingForm rendering and API service mocks.";
     }
     if (name.includes("jenkins")) {
-      return "Jenkins Build #9 — the first full pipeline SUCCESS after 8 failed iterations (builds #1–#8 failed due to incorrect Docker credential binding and missing npm ci steps). The successful build completed all 9 stages: Checkout → Install Dependencies → Run Tests → Build Docker Images → Push to Docker Hub → Deploy to Kubernetes → Smoke Tests → Cleanup.";
+      return "Jenkins Build #9, the first full pipeline SUCCESS after 8 failed iterations (builds #1–#8 failed due to incorrect Docker credential binding and missing npm ci steps). The successful build completed all 9 stages: Checkout → Install Dependencies → Run Tests → Build Docker Images → Push to Docker Hub → Deploy to Kubernetes → Smoke Tests → Cleanup.";
     }
     if (name.includes("kubernetes")) {
       return "The parking-system namespace with all 5 pods running (1 mongodb, 2 parking-backend replicas, 2 parking-frontend replicas), 0 restarts. ClusterIP services expose frontend on Port 80, backend on Port 5000, and mongodb on Port 27017. HPA configured for min 2 / max 5 backend replicas at 70% CPU threshold.";
@@ -68,7 +68,7 @@ function figureNote(project: ProjectDetail, image: string) {
 
   if (project.slug === "sketch-to-face-generation") {
     if (name.includes("architecture") || name.includes("block diagram")) {
-      return "The high-level block diagram of the multimodal synthesis framework. Three inputs — sketch (RGB, 3 channels), spatial mask (grayscale, 1 channel), and text description (512-dim CLIP ViT-B/32 embedding) — feed into the dual-path encoder-decoder GAN with a PatchGAN discriminator evaluating patch-wise realism at 16×16 resolution.";
+      return "The high-level block diagram of the multimodal synthesis framework. Three inputs, sketch (RGB, 3 channels), spatial mask (grayscale, 1 channel), and text description (512-dim CLIP ViT-B/32 embedding), feed into the dual-path encoder-decoder GAN with a PatchGAN discriminator evaluating patch-wise realism at 16×16 resolution.";
     }
     if (name.includes("data flow")) {
       return "The six-stage data flow: raw images from FS2K and CUHK datasets → preprocessing (resize to 256×256, normalize to [-1,1]) → hierarchical visual encoding (64→128→256→512 channels) and CLIP text encoding → dual-pooling bottleneck fusion (max + average pooling → 1024 channels → 256 channels) → decoder with skip connections → PatchGAN discrimination and multi-loss backpropagation.";
@@ -77,22 +77,22 @@ function figureNote(project: ProjectDetail, image: string) {
       return "The adversarial training cycle alternating discriminator and generator updates. Generator loss is a weighted combination: Adversarial (λ=1) + L1 Reconstruction (λ=50) + Perceptual VGG-19 (λ=20) + Edge/Sobel (λ=5) + Total Variation (λ=2) + Feature Matching (λ=10) + Eye-Focused (λ=90 combined). Checkpoints saved every 10 epochs via StepLR scheduling (0.5× decay per 10 epochs).";
     }
     if (name.includes("psnr")) {
-      return "PSNR distribution across 2,292 test samples. Values range from approximately 18–27 dB, with an average of 21.27 dB. Performance correlates strongly with sketch clarity and shading uniformity — cleaner contours produce higher PSNR. The model is competitive with HiTS (21.1 dB average) while using significantly lower architectural complexity.";
+      return "PSNR distribution across 2,292 test samples. Values range from approximately 18–27 dB, with an average of 21.27 dB. Performance correlates strongly with sketch clarity and shading uniformity, cleaner contours produce higher PSNR. The model is competitive with HiTS (21.1 dB average) while using significantly lower architectural complexity.";
     }
     if (name.includes("ssim")) {
       return "SSIM distribution across 2,292 test samples, spanning 0.60–0.85 with an average of 0.719. While HiTS achieves 0.84 SSIM through hierarchical text-guided stylization and component-level attribute control, our model delivers these results with a simpler architecture suitable for resource-limited deployments.";
     }
     if (name.includes("east asian")) {
-      return "Example 1 — East Asian female: clean contours and well-defined facial lines allow the model to closely match facial width, eye shape, and skin tone smoothness. The softer facial structure typical of East Asian features is preserved along with symmetry and identity cues.";
+      return "Example 1, East Asian female: clean contours and well-defined facial lines allow the model to closely match facial width, eye shape, and skin tone smoothness. The softer facial structure typical of East Asian features is preserved along with symmetry and identity cues.";
     }
     if (name.includes("eyeglasses")) {
-      return "Example 2 — White male with eyeglasses and facial hair: the model reconstructs the eyeglass frame with minimal distortion, preserving nose shape, eyebrow alignment, and chin structure. This tests accessory complexity and demonstrates strong identity preservation despite occlusion.";
+      return "Example 2, White male with eyeglasses and facial hair: the model reconstructs the eyeglass frame with minimal distortion, preserving nose shape, eyebrow alignment, and chin structure. This tests accessory complexity and demonstrates strong identity preservation despite occlusion.";
     }
     if (name.includes("african")) {
-      return "Example 3 — African/Black male: despite shading inconsistencies in the input sketch, the model reconstructs facial proportions, eye spacing, and jawline effectively. Texture and complexion detail is improved relative to baseline GAN models, demonstrating robustness across diverse skin tones.";
+      return "Example 3, African/Black male: despite shading inconsistencies in the input sketch, the model reconstructs facial proportions, eye spacing, and jawline effectively. Texture and complexion detail is improved relative to baseline GAN models, demonstrating robustness across diverse skin tones.";
     }
     if (name.includes("long hair")) {
-      return "Example 4 — Hispanic male with long hair and facial hair: loose sketch contours for hair and facial features are handled well — the model reconstructs the long-hair structure, mustache, and overall facial width accurately, demonstrating resilience to incomplete or stylized input sketches.";
+      return "Example 4, Hispanic male with long hair and facial hair: loose sketch contours for hair and facial features are handled well, the model reconstructs the long-hair structure, mustache, and overall facial width accurately, demonstrating resilience to incomplete or stylized input sketches.";
     }
   }
 
@@ -204,11 +204,11 @@ function VPMSContent() {
     },
     {
       name: "HPA",
-      detail: "parking-backend-hpa — min 2, max 5 replicas, 70% CPU threshold",
+      detail: "parking-backend-hpa, min 2, max 5 replicas, 70% CPU threshold",
     },
     {
       name: "PVC",
-      detail: "mongodb-pvc — 1Gi Bound, standard storage class, RWO access",
+      detail: "mongodb-pvc, 1Gi Bound, standard storage class, RWO access",
     },
     {
       name: "ConfigMap & Secret",
@@ -226,7 +226,7 @@ function VPMSContent() {
     {
       title: "Kubernetes HPA showing <unknown> CPU targets",
       resolution:
-        "Acknowledged as a Docker Desktop limitation — the metrics-server is not installed. HPA configuration was structurally validated; min/max replicas (2/5) confirmed correct.",
+        "Acknowledged as a Docker Desktop limitation, the metrics-server is not installed. HPA configuration was structurally validated; min/max replicas (2/5) confirmed correct.",
     },
     {
       title: "MongoDB URI mismatch across environments",
@@ -248,7 +248,7 @@ function VPMSContent() {
           Jest Test Results
         </h2>
         <p className="mt-3 leading-7 text-muted-foreground">
-          17 tests across 8 suites — all passing. Backend: 6 suites, 12 tests
+          17 tests across 8 suites, all passing. Backend: 6 suites, 12 tests
           (~2.1s). Frontend: 2 suites, 5 tests (~3.6s).
         </p>
         <div className="mt-6 overflow-hidden rounded-sm border border-border">
@@ -707,13 +707,13 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
       question: "Find the design visually appealing (rated 3 or below)",
       percentage: 87,
       detail:
-        "91 responses — 50.5% rated the app a 3, with 13.2% giving it a 1, showing widespread dissatisfaction with the visual design.",
+        "91 responses, 50.5% rated the app a 3, with 13.2% giving it a 1, showing widespread dissatisfaction with the visual design.",
     },
     {
       question: "Find navigation unintuitive (rated 3 or below)",
       percentage: 87,
       detail:
-        "91 responses — 20.9% gave navigation a 1 (worst), with only 13.2% rating it 4 or above.",
+        "91 responses, 20.9% gave navigation a 1 (worst), with only 13.2% rating it 4 or above.",
     },
     {
       question: "Experience frequent errors on the app",
@@ -803,70 +803,70 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
         "Light theme matching main UI, rounded containers and icons, new Feature Guide option added, social media icons refined at bottom.",
     },
     {
-      section: "Local Train — Station List",
+      section: "Local Train, Station List",
       before:
         "Congested list with no prioritisation, no recent stations, dark background reducing scanability.",
       after:
         "Improved spacing and lighter theme with recent stations surfaced at the top, Near Me section, and railway line filter tabs (ALL / W / C / H / T / U / P).",
     },
     {
-      section: "Local Train — Train List",
+      section: "Local Train, Train List",
       before:
         "Congested list with unnecessary information like train number cluttering the scan path.",
       after:
         "Simplified cards with improved spacing, lighter theme, and essential timing and direction information only.",
     },
     {
-      section: "Local Train — Train Stops",
+      section: "Local Train, Train Stops",
       before:
         "Dark list with numerous unnecessary buttons making it hard to track the journey path.",
       after:
         "Clean timeline with station bubbles, platform numbers, and departure times neatly aligned for each stop.",
     },
     {
-      section: "Local Train — A to B",
+      section: "Local Train, A to B",
       before:
         "Visually unappealing UI, search and results on separate screens without justification.",
       after:
         "Lighter theme with search and results on the same page, improving context and reducing navigation steps.",
     },
     {
-      section: "Metro — Line Selection",
+      section: "Metro, Line Selection",
       before:
         "Dark theme with minimal spacing, plain list items, no visual separation between lines.",
       after:
         "Light theme with card-style line buttons, improved spacing, and clear visual separation for each metro line.",
     },
     {
-      section: "Metro — Station Selection",
+      section: "Metro, Station Selection",
       before:
         "Dense vertical list on black background, no emphasis on selection state.",
       after:
         "Light blue background with large, tappable station buttons and highlighted selection, improving accessibility.",
     },
     {
-      section: "Metro — Train Timings",
+      section: "Metro, Train Timings",
       before:
         "Dark vertical list with minimal styling, cluttered information, and unclear direction labels.",
       after:
         "Station bubbles with neatly aligned timings, spacious cards per train, and clear direction indicators.",
     },
     {
-      section: "Monorail — Flow",
+      section: "Monorail, Flow",
       before:
         "Direction selection prompted before station entry, causing confusion about which direction applied to which station.",
       after:
         "Station entry first, then direction selection. The sequence follows the user's natural mental model: where am I → where do I want to go.",
     },
     {
-      section: "MSRTC — Home Screen",
+      section: "MSRTC, Home Screen",
       before:
         "Flat red theme, boxy buttons, crowded service list with no visual hierarchy.",
       after:
         "Clean layout with modern icons, soft colour palette, quick access to AC Services, Feedback, and Bus Booking, with a Recent section for repeat journeys.",
     },
     {
-      section: "Bus — Search",
+      section: "Bus, Search",
       before:
         "Single flat red/black theme, boxy buttons, limited search options visible upfront.",
       after:
@@ -896,7 +896,7 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
     },
     {
       area: "System Feedback",
-      desc: "No alerts for timetable updates or schedule changes — users rely on potentially outdated data.",
+      desc: "No alerts for timetable updates or schedule changes, users rely on potentially outdated data.",
     },
     {
       area: "Navigation",
@@ -904,7 +904,7 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
     },
     {
       area: "Customisation",
-      desc: "No ability to tailor the experience — train-only users must navigate unrelated transport sections.",
+      desc: "No ability to tailor the experience, train-only users must navigate unrelated transport sections.",
     },
     {
       area: "Aesthetics",
@@ -931,7 +931,7 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
         <p className="mt-3 leading-7 text-muted-foreground">
           Surveys conducted with 91 metro and railway travellers confirmed that
           M-Indicator, while still popular, is frustrating users due to poor UI
-          — leading some to switch to competitors or avoid using it despite
+          , leading some to switch to competitors or avoid using it despite
           needing it daily.
         </p>
         <div className="mt-6 space-y-5">
@@ -990,7 +990,7 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
         <p className="mt-3 leading-7 text-muted-foreground">
           Google Play Store review analysis revealed consistent negative
           patterns across thousands of user reviews, regardless of when they
-          were written — indicating long-standing, unresolved issues rather than
+          were written, indicating long-standing, unresolved issues rather than
           one-off bugs.
         </p>
         <div className="mt-6 space-y-3">
@@ -1013,7 +1013,7 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
             {
               issue: "Platform numbers too small",
               detail:
-                "Platform number font size reported as too small to read quickly on the platform — a critical usability failure.",
+                "Platform number font size reported as too small to read quickly on the platform, a critical usability failure.",
             },
             {
               issue: "Categorised train listings removed",
@@ -1039,13 +1039,13 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
         </div>
       </Page>
 
-      {/* Secondary Research Images — immediately after Secondary Research */}
+      {/* Secondary Research Images, immediately after Secondary Research */}
       {secondaryResearchImages.length > 0 && (
         <div className="space-y-6">
           {secondaryResearchImages.map((image, index) => (
             <Page key={image} className="rounded-sm">
               <p className="font-mono text-xs uppercase tracking-wider text-primary">
-                Secondary Research — Figure {String(index + 1).padStart(2, "0")}
+                Secondary Research, Figure {String(index + 1).padStart(2, "0")}
               </p>
               <h3 className="mt-2 font-heading text-xl font-semibold text-foreground">
                 {titleFromImage(image)}
@@ -1098,8 +1098,8 @@ function MIndicatorContent({ project }: { project: ProjectDetail }) {
           The original app was scored against Nielsen's 10 usability heuristics
           on a scale of 1–10. Scores of 10 indicate the heuristic is fully
           violated (worst). The app scored perfectly on Match Between System &
-          Real World and Consistency & Standards — meaning it uses familiar
-          language and behaves consistently — but scored critically low on
+          Real World and Consistency & Standards, meaning it uses familiar
+          language and behaves consistently, but scored critically low on
           aesthetics, error recovery, and documentation.
         </p>
         <div className="mt-6 space-y-3">
@@ -1330,7 +1330,7 @@ export function ProjectDetailTemplate({ project }: ProjectDetailTemplateProps) {
             </Button>
           </div>
 
-          {/* Hero page — image on top, description below */}
+          {/* Hero page, image on top, description below */}
           <Page className="rounded-sm">
             <span className="font-mono text-xs uppercase tracking-wider text-primary">
               {kindLabel}
