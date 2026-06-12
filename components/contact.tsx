@@ -35,7 +35,7 @@ export function Contact() {
 
         <div className="mx-auto max-w-4xl">
           <div className="relative">
-            <div className="absolute -inset-4 rotate-[-1deg] rounded-sm border border-border bg-card/55 shadow-2xl shadow-black/20" />
+            <div className="absolute -inset-4 rounded-sm border border-border bg-card/55 shadow-2xl shadow-black/20" />
             <div className="relative rounded-sm border border-border bg-background/90 p-6 shadow-2xl shadow-black/15 sm:p-10">
               <div className="absolute inset-x-10 top-8 h-px bg-primary/20" />
               <div className="absolute inset-x-10 bottom-8 h-px bg-primary/15" />
@@ -85,7 +85,7 @@ export function Contact() {
                       backgroundImage:
                         "repeating-linear-gradient(to bottom, transparent, transparent calc(2rem - 1px), var(--border) calc(2rem - 1px), var(--border) 2rem)",
                       backgroundSize: "100% 2rem",
-                      backgroundPositionY: "calc(2rem + 0.75rem)", // offset = padding-top
+                      backgroundPositionY: "calc(2rem + 0.75rem)",
                     }}
                   />
                 </label>
